@@ -13,6 +13,41 @@ const questions = [
         question: "What creature guards the entrance to the Gryffindor common room?",
         choices: ["The Fat Lady", "The Bloody Baron", "The Grey Lady", "The Fat Friar"],
         answer: "The Fat Lady"
+    },
+    {
+        question: "What is the name of Harry Potter's owl?",
+        choices: ["Hedwig", "Errol", "Pigwidgeon", "Crookshanks"],
+        answer: "Hedwig"
+    },
+    {
+        question: "What is the name of the Weasley's house?",
+        choices: ["The Burrow", "Shell Cottage", "Grimmauld Place", "Godric's Hollow"],
+        answer: "The Burrow"
+    },
+    {
+        question: "What is the name of the potion that grants luck?",
+        choices: ["Felix Felicis", "Polyjuice Potion", "Veritaserum", "Amortentia"],
+        answer: "Felix Felicis"
+    },
+    {
+        question: "Who is the author of the Harry Potter series?",
+        choices: ["J.K. Rowling", "Stephen King", "George R.R. Martin", "J.R.R. Tolkien"],
+        answer: "J.K. Rowling"
+    },
+    {
+        question: "What is the name of the goblin who helps Harry break into Gringotts?",
+        choices: ["Griphook", "Bogrod", "Gornuk", "Ragnok"],
+        answer: "Griphook"
+    },
+    {
+        question: "What is the name of the tree that the Weasley's car crashes into?",
+        choices: ["The Whomping Willow", "The Wailing Willow", "The Weeping Willow", "The Wandering Willow"],
+        answer: "The Whomping Willow"
+    },
+    {
+        question: "What is the name of the bank where wizards keep their money?",
+        choices: ["Gringotts", "Galleons", "Goblins", "Goldgrip"],
+        answer: "Gringotts"
     }
 ];
 
@@ -52,8 +87,14 @@ function checkAnswer(answer) {
     } else {
         lives--;
         lifeIcon.textContent = "⚡".repeat(lives);
+        document.body.classList.add('flicker-effect');
+        setTimeout(function() {
+            document.body.classList.remove('flicker-effect');
+        }, 500);
         if (lives === 0) {
             showResult("Game over! You ran out of lives.");
+        } else {
+            showQuestion();
         }
     }
 }
